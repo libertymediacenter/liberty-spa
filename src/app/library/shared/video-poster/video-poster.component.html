@@ -1,0 +1,13 @@
+<div class="video-item">
+  <ng-container *ngIf="video.imageUrl; else noImage">
+    <img
+      class="outline"
+      [style.width.px]="width"
+      src="{{ video?.imageUrl }}"
+      alt="{{ video?.title }} poster">
+  </ng-container>
+
+  <ng-template #noImage>
+    <div class="outline poster-placeholder"></div>
+  </ng-template>
+</div>

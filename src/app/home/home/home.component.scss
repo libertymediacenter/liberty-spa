@@ -1,0 +1,19 @@
+.video-cards {
+  overflow-x: auto;
+
+  .video-card {
+    width: 400px;
+    text-align: center;
+
+    p {
+      font-weight: 400;
+    }
+  }
+
+}
+
+.video-card, .recently-added-item {
+  &:not(:first-child) {
+    margin-left: 30px;
+  }
+}

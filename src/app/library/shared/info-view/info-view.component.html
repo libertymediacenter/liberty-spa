@@ -1,0 +1,67 @@
+<div class="info-view">
+  <div class="info-view-items" *ngIf="info; else noInfo">
+    <div class="header d-flex flex-row justify-content-between">
+      <div class="text-item">
+        <p class="title">{{ info.title }}</p>
+      </div>
+
+      <div class="text-item">
+        <p class="year">{{ info.year }}</p>
+      </div>
+    </div>
+
+    <div class="backdrop">
+      <img
+        *ngIf="info.imageUrl"
+        src="{{ info.imageUrl }}"
+        alt="{{ info.title }} backdrop">
+
+      <div class="d-flex flex-row justify-content-between mt-1">
+        <p class="secondary runtime" *ngIf="info.runtime"
+        >{{ info.runtime | amDuration:'minutes' }}
+          <span class="font-italic">finish at {{ date | amAdd: info.runtime : 'minutes' | amDateFormat: 'HH:mm' }}</span>
+        </p>
+
+        <div>
+          <ng-container *ngFor="let genre of info?.genres; last as isLast">
+            <a class="secondary genre"
+               href="#"
+            >{{ genre.displayName }}</a>
+
+            <ng-container *ngIf="!isLast">
+              <app-dot-divider></app-dot-divider>
+            </ng-container>
+
+          </ng-container>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-1 summary" *ngIf="info.summary">
+      <p>{{ info.summary }}</p>
+    </div>
+
+    <app-info-view-link-section
+      *ngIf="info.starring && info.starring.length > 0"
+      title="Starring"
+      [linkItems]="getStarring()"></app-info-view-link-section>
+
+    <app-info-view-link-section
+      *ngIf="info.ratings && info.ratings.length > 0"
+      title="Ratings"
+      [linkItems]="getRatings()"></app-info-view-link-section>
+
+    <div class="info-details awards" *ngIf="info.awards">
+      <p class="secondary">Awards</p>
+
+      <p *ngFor="let award of info.awards">{{ award }}</p>
+    </div>
+  </div>
+
+  <ng-template #noInfo>
+    <div class="info-view-items">
+      <p class="no-info">Hover over an item</p>
+    </div>
+  </ng-template>
+
+</div>

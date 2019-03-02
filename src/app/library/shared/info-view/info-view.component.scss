@@ -1,0 +1,75 @@
+.info-view {
+  width: 410px;
+
+  .info-view-items {
+    width: 380px;
+  }
+
+  & {
+    width: inherit;
+    padding: 0 12px;
+  }
+
+  .header {
+
+    .text-item {
+      align-self: flex-end;
+    }
+
+    .title {
+      font-family: Raleway-SemiBold, 'sans-serif';
+      font-size: 24px;
+      color: #D1CFCF;
+      letter-spacing: -0.37px;
+      text-align: left;
+    }
+
+    .year {
+      font-family: Rubik, 'sans-serif';
+      font-size: 16.26px;
+      color: #E53935;
+      letter-spacing: 0.15px;
+    }
+  }
+
+  .backdrop {
+    img {
+      width: 380px;
+    }
+  }
+
+  .info-details {
+    margin-top: 0.9rem;
+  }
+
+  .summary {
+    font-weight: 500;
+    font-size: 14.2px;
+    color: #FFFFFF;
+    letter-spacing: 0.25px;
+    text-align: left;
+    line-height: 20px;
+    word-break: break-word;
+  }
+}
+
+.genre {
+
+}
+
+.secondary {
+  font-family: Raleway, sans-serif;
+  font-weight: 600;
+  font-size: 12.15px;
+  color: rgba(255,255,255,0.60);
+  letter-spacing: 0.08px;
+  text-align: left;
+  line-height: 24px;
+  text-transform: uppercase;
+  vertical-align: bottom;
+}
+
+.runtime {
+  font-size: 13px;
+  text-transform: unset;
+}

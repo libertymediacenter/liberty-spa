@@ -1,0 +1,29 @@
+<div class="container-fluid d-flex flex-row position-relative">
+
+  <div class="library-item-container">
+    <div
+      class="d-flex flex-row flex-wrap library-items align-items-start"
+      scrollable (scrollPosition)="scrollHandler($event)"
+    >
+
+      <app-video-poster
+        class="col p-0 mt-1 mb-1 ml-1 mr-1"
+        *ngFor="let video of videos"
+        [video]="video"
+        (mouseover)="onMouseOver(video)"
+        (click)="onClick(video)"
+      ></app-video-poster>
+
+    </div>
+  </div>
+
+  <div class="sidebar">
+    <app-info-view
+      [info]="infoView"></app-info-view>
+
+    <!--
+    <app-loading-spinner *ngIf="movieService.loading | async"></app-loading-spinner>
+    -->
+  </div>
+
+</div>

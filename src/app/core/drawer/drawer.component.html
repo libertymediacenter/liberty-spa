@@ -1,0 +1,17 @@
+<div class="drawer">
+  <div class="drawer-content">
+    <button routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</button>
+
+    <div class="d-flex flex-column nav-section">
+      <p>Libraries</p>
+
+      <button
+        *ngFor="let item of menuItems"
+        [routerLink]="item.route"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{exact: true}"
+      >{{ item.label }}</button>
+
+    </div>
+  </div>
+</div>

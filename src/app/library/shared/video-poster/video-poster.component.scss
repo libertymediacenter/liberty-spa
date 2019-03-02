@@ -1,0 +1,15 @@
+@import "../../../../scss/colors";
+
+.video-item {
+  height: 255px;
+  width: 150px;
+
+  img, .poster-placeholder {
+    height: 100%;
+    width: 100%;
+  }
+
+  .poster-placeholder {
+    background-color: lighten($liberty-nav-bg, 1%);
+  }
+}

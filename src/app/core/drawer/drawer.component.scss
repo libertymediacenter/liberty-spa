@@ -1,0 +1,65 @@
+@import "../../../scss/colors";
+
+.drawer {
+  background: $liberty-nav-bg;
+  padding: 16px;
+  height: 100%;
+
+  .drawer-branding {
+    display: flex;
+    justify-content: center;
+  }
+
+  .drawer-content {
+    height: 50vh; // experiment with this value, try changing to 110vh
+    min-height: 200px;
+    overflow: visible;
+    position: sticky;
+    top: 5%;
+
+    button, p {
+      font-size: 26.15px;
+      color: $liberty-grey;
+      letter-spacing: 4.31px;
+
+      font-weight: 400;
+
+      border: none;
+      background: none;
+
+      text-transform: uppercase;
+      text-align: left;
+
+      transition: color 200ms ease-in-out;
+      outline: 0;
+    }
+
+    button:hover {
+      cursor: pointer;
+      color: $liberty-grey-light;
+    }
+
+    button.active {
+      color: $liberty-red;
+    }
+
+    .nav-section {
+      margin-top: 20px;
+
+      p {
+        font-weight: 400;
+        color: $liberty-grey-dark;
+        font-size: 12px;
+        text-transform: unset;
+        margin-bottom: 6px;
+        margin-left: 9px;
+        letter-spacing: 0.8px;
+      }
+
+      button {
+        margin-top: 4px;
+      }
+    }
+  }
+
+}

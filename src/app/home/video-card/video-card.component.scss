@@ -1,0 +1,48 @@
+@import "../../../scss/colors";
+
+.video-card {
+  margin-top: 4px;
+  margin-left: 2px;
+
+  position: relative;
+
+  height: 225px;
+  width: 100%;
+
+  user-select: none;
+
+  img {
+    min-width: 400px;
+    height: 100%;
+    width: 100%;
+  }
+
+  .video-card-overlay {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    background: rgba(0, 0, 0, 0.7);
+    height: 40px;
+    width: 100%;
+
+    .progressbar {
+      height: 1px;
+      width: 100%;
+
+      span {
+        display: block;
+        height: 100%;
+        background-color: $liberty-red;
+      }
+    }
+
+    p {
+      font-weight: 500;
+      font-size: 12px;
+      color: $liberty-white;
+      letter-spacing: 0.4px;
+      text-align: left;
+    }
+  }
+}

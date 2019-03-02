@@ -1,0 +1,25 @@
+<div class="info-details info-has-links">
+  <p class="secondary">{{ title }}</p>
+
+  <div class="d-flex justify-content-between">
+    <ng-container *ngFor="let item of linkItems">
+
+      <a
+        *ngIf="item.external; else internal"
+        [href]="item.href"
+        target="_blank"
+        rel="noopener"
+        title="Go to {{ item.label }}"
+      >{{ item.label }}</a>
+
+      <ng-template #internal>
+        <a
+          routerLink="{{ item.href }}"
+          title="Go to {{ item.label }}"
+        >{{ item.label }}</a>
+      </ng-template>
+
+    </ng-container>
+
+  </div>
+</div>

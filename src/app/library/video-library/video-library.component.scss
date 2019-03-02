@@ -1,0 +1,12 @@
+.library-item-container {
+  margin-left: -8px;
+
+  .library-items {
+    overflow-y: scroll;
+    height: 100vh;
+  }
+}
+
+.sidebar {
+  position: sticky;
+}

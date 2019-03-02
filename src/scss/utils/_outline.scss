@@ -1,0 +1,10 @@
+@import "../colors";
+
+.outline {
+  transition: outline-color 120ms ease-in-out;
+
+  &:hover, &:focus, &:active {
+    cursor: pointer;
+    outline: 2px solid $liberty-white;
+  }
+}

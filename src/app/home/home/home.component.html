@@ -1,0 +1,30 @@
+<div class="container-fluid mt-2">
+
+  <h1 class="mb-3">Continue watching</h1>
+
+  <div class="d-flex flex-row video-cards">
+    <div class="video-card" *ngFor="let videoCard of videoCards">
+      <app-video-card [card]="videoCard"></app-video-card>
+
+      <p class="mt-1" *ngIf="videoCard.subtitle">{{ videoCard.subtitle }}</p>
+    </div>
+  </div>
+
+  <h2 class="mt-3 mb-3">Recently added movies</h2>
+
+  <div class="d-flex flex-row">
+    <div class="recently-added-item" *ngFor="let movie of recentlyAddedMovies">
+      <app-poster-card [posterCard]="movie"></app-poster-card>
+    </div>
+  </div>
+
+
+  <h2 class="mt-3 mb-3">Recently added series</h2>
+
+  <div class="d-flex flex-row">
+    <div class="recently-added-item" *ngFor="let series of recentlyAddedSeries">
+      <app-poster-card [posterCard]="series"></app-poster-card>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,14 @@
+<div class="video-card outline">
+  <img src="{{ card.imagePath }}" alt="{{ card?.subtitle + ' Fanart' }}">
+
+  <div class="video-card-overlay">
+    <div class="progressbar" *ngIf="card.progressBarValue">
+      <span class="rounded" [style.width.%]="card.progressBarValue"></span>
+    </div>
+
+    <div class="d-flex flex-row justify-content-between align-items-center h-100 p-2 h-100 p-2">
+      <p>{{ card.leftSideText }}</p>
+      <p>{{ card.rightSideText }}</p>
+    </div>
+  </div>
+</div>
