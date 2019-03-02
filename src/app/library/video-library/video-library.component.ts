@@ -53,6 +53,7 @@ export class VideoLibraryComponent implements OnInit, OnDestroy {
       imageUrl: video.backdropUrl,
       runtime: video.runtime,
       genres: video.genres,
+      tagline: video.tagline,
       summary: video.summary,
       starring: video.starring,
       ratings: video.ratings,

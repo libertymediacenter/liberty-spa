@@ -21,6 +21,7 @@ export interface VideoItem {
   runtime?: number;
   imageUrl?: string;
   backdropUrl?: string;
+  tagline?: string;
   summary?: string;
   genres?: Genre[];
   starring?: Person[];

@@ -6,6 +6,7 @@ export interface InfoView {
   imageUrl?: string;
   runtime?: number;
   genres?: Genre[];
+  tagline?: string;
   summary?: string;
   starring?: Person[];
   ratings?: Rating[];

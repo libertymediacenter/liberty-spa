@@ -61,6 +61,7 @@ export class MovieService {
       runtime: movie.runtime,
       imageUrl: getImageUrl(movie.poster, '155x255'),
       backdropUrl: getImageUrl(movie.backdrop, '768x432'),
+      tagline: movie.tagline,
       summary: movie.plot,
       genres: null,
       starring: null,
