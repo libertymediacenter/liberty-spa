@@ -11,5 +11,11 @@
 
   .poster-placeholder {
     background-color: lighten($liberty-nav-bg, 1%);
+
+    p {
+      color: $liberty-grey;
+      font-weight: 500;
+      text-transform: uppercase;
+    }
   }
 }
