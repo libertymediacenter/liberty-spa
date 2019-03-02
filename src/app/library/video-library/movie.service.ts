@@ -38,7 +38,11 @@ export class MovieService {
         perPage: this._perPage.toString(),
       },
     }).subscribe((res) => {
-      this.mapCollection(res);
+      if (res.data.length === 0) {
+        this._done.next(true);
+      } else {
+        this.mapCollection(res);
+      }
     });
   }
 

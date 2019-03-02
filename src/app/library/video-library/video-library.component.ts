@@ -17,6 +17,7 @@ export class VideoLibraryComponent implements OnInit, OnDestroy {
 
   private _segments$: Subscription;
   private _data$: Subscription;
+  private _done = false;
 
   constructor(private route: ActivatedRoute,
               private router: Router,
@@ -37,11 +38,13 @@ export class VideoLibraryComponent implements OnInit, OnDestroy {
       if (movies.length > 0) {
         this.videos.push(...movies);
       }
-    });
+    }).add(this.movieService.done.subscribe((done) => {
+      this._done = done;
+    }))
   }
 
   public scrollHandler(event) {
-    if (event === 'bottom') {
+    if (event === 'bottom' && !this._done) {
       this.movieService.more()
     }
   }
