@@ -2,7 +2,7 @@
 
   <div class="library-item-container">
     <div
-      class="d-flex flex-row flex-wrap library-items align-items-start"
+      class="d-flex flex-row flex-wrap library-items align-content-start"
       scrollable (scrollPosition)="scrollHandler($event)"
     >
 
@@ -17,7 +17,7 @@
     </div>
   </div>
 
-  <div class="sidebar" *ngIf="videos.length > 0">
+  <div class="sidebar d-none d-xl-block" *ngIf="videos.length > 0">
     <app-info-view
       [info]="infoView"></app-info-view>
 
