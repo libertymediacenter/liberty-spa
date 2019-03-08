@@ -12,6 +12,12 @@
 @import "scss/utils";
 @import "scss/typography";
 
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
 body {
   background: #000;
+  display: flex;
 }
