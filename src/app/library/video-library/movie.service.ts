@@ -15,7 +15,7 @@ export class MovieService {
   private _assetBaseUrl = environment.ASSET_BASE_URL;
 
   private _page = 1;
-  private _perPage = 32;
+  private _perPage = 64;
 
   data: Observable<MovieItem[]>;
   done: Observable<boolean> = this._done.asObservable();
