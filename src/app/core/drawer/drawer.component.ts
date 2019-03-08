@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { DrawerService } from '../../shared/services/drawer.service';
 
 export interface DrawerMenuItem {
   label: string;
@@ -8,9 +10,9 @@ export interface DrawerMenuItem {
 @Component({
   selector: 'app-drawer',
   templateUrl: './drawer.component.html',
-  styleUrls: ['./drawer.component.scss']
+  styleUrls: ['./drawer.component.scss'],
 })
-export class DrawerComponent implements OnInit {
+export class DrawerComponent implements OnInit, OnDestroy {
   public menuItems: DrawerMenuItem[] = [
     { label: 'Movies', route: '/libraries/movies' },
     { label: 'Series', route: '/libraries/series' },
@@ -19,9 +21,19 @@ export class DrawerComponent implements OnInit {
     { label: 'Music', route: '/libraries/music' },
   ];
 
-  constructor() { }
+  public display: boolean;
+  private _subscription: Subscription;
+
+  constructor(private drawerService: DrawerService) {
+  }
 
   ngOnInit() {
+    this._subscription = this.drawerService.display
+      .subscribe((display) => this.display = display);
+  }
+
+  public ngOnDestroy(): void {
+    this._subscription.unsubscribe();
   }
 
 }
