@@ -1,7 +1,8 @@
 <div class="info-view">
   <div class="info-view-items" *ngIf="info; else noInfo">
     <div class="header d-flex flex-row justify-content-between">
-      <div class="text-item">
+      <div class="text-item d-flex">
+        <div class="title-spacer"></div>
         <p class="title">{{ info.title }}</p>
       </div>
 
@@ -26,7 +27,7 @@
           <ng-container *ngFor="let genre of info?.genres; last as isLast">
             <a class="secondary genre"
                href="#"
-            >{{ genre.displayName }}</a>
+            >{{ genre.name }}</a>
 
             <ng-container *ngIf="!isLast">
               <app-dot-divider></app-dot-divider>

@@ -1,6 +1,5 @@
 export interface Genre {
-  displayName: string;
-  slug: string;
+  name: string;
 }
 
 export interface Person {
@@ -17,6 +16,7 @@ export interface Rating {
 
 export interface VideoItem {
   title: string;
+  slug: string;
   releaseYear?: number;
   runtime?: number;
   imageUrl?: string;
@@ -30,7 +30,6 @@ export interface VideoItem {
 }
 
 export interface MovieItem extends VideoItem {
-
 }
 
 export interface SeriesItem extends VideoItem {

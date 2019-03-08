@@ -27,13 +27,13 @@ export class ContextMenuComponent implements OnInit {
     this.prepareContextMenu();
   }
 
-  public hideContextMenuWithTimer(miliseconds) {
-    if (isNullOrUndefined(miliseconds)) {
-      miliseconds = ContextMenuComponent.MOUSE_OUT_TIMEOUT_MS;
+  public hideContextMenuWithTimer(milliseconds = null) {
+    if (isNullOrUndefined(milliseconds)) {
+      milliseconds = ContextMenuComponent.MOUSE_OUT_TIMEOUT_MS;
     }
     this.autoHideTimer = setTimeout(() => {
       this.data.show = false;
-    }, miliseconds);
+    }, milliseconds);
   }
 
   public clearContextMenuHideTimer() {
@@ -41,10 +41,7 @@ export class ContextMenuComponent implements OnInit {
   }
 
   isValueNullOrUndefined(value) {
-    if (isNullOrUndefined(value)) {
-      return true;
-    }
-    return false;
+    return !!isNullOrUndefined(value);
   }
 
   callSubscriber(item: MenuItem) {
@@ -94,8 +91,7 @@ export class ContextMenuComponent implements OnInit {
   }
 
   private buildLeftPosition() {
-    const clickedPosX = this.data.mouseEvent.clientX;
-    this.containerPosX = clickedPosX;
+    this.containerPosX = this.data.mouseEvent.clientX;
   }
 
   private buildTopPosition(contextMenuHeight: number) {

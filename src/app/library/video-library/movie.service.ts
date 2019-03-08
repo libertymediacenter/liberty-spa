@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { MovieItem } from '../shared/interfaces/media';
-import { LibertyCollection, LibertyMovie } from '../shared/interfaces/responses';
+import { LibertyCast, LibertyCollection, LibertyGenre, LibertyMovie } from '../shared/interfaces/responses';
 
 @Injectable()
 export class MovieService {
@@ -46,6 +46,10 @@ export class MovieService {
     });
   }
 
+  public reset() {
+    this._page = 1;
+  }
+
   private mapCollection(collection: LibertyCollection<LibertyMovie[]>) {
     this._page++;
 
@@ -59,6 +63,26 @@ export class MovieService {
       return `${this._assetBaseUrl}/images/${dimensions}/${imageFile}`;
     };
 
+    const sortStarring = (cast: LibertyCast[]) => {
+      const sorted = cast.sort((a, b) => {
+        return a.order - b.order;
+      });
+
+      return sorted.filter((x) => {
+        if (x.order < 3) {
+          return x;
+        }
+      });
+    };
+
+    const getGenres = (genres: LibertyGenre[]) => {
+      return genres.filter((x, idx) => {
+        if (idx < 2) {
+          return x;
+        }
+      });
+    };
+
     const items = collection.data.map((movie) => <MovieItem> ({
       title: movie.title,
       releaseYear: movie.year,
@@ -67,10 +91,14 @@ export class MovieService {
       backdropUrl: getImageUrl(movie.backdrop, '768x432'),
       tagline: movie.tagline,
       summary: movie.plot,
-      genres: null,
-      starring: null,
+      genres: getGenres(movie.genres),
+      starring: sortStarring(movie.cast).map((x) => ({
+        displayName: x.person.name,
+        slug: x.person.slug,
+      })),
       ratings: null,
       awards: null,
+      slug: movie.slug,
     }));
 
     this._data.next(items);

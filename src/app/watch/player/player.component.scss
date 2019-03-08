@@ -1,0 +1,67 @@
+@import "../../../scss/colors";
+
+.player-container {
+  height: 99.7vh;
+  width: 100%;
+  position: relative;
+
+  .overlay {
+    position: absolute;
+    z-index: 2147483647;
+    background: linear-gradient(180deg, rgba(0, 0, 0, .7) 0%, rgba(0, 0, 0, 0) 90%);
+    height: 100%;
+    width: 100%;
+    pointer-events: none;
+  }
+
+  video {
+    height: inherit;
+    width: inherit;
+    max-height: 100vh;
+    max-width: 100vw;
+    z-index: 1 !important;
+  }
+}
+
+.info-box {
+}
+
+.overlay-divider {
+  background: $liberty-white;
+  height: 1px;
+  width: 100%;
+}
+
+.overlay-title {
+  color: $liberty-white;
+  font-size: 26px;
+}
+
+.overlay-year {
+  align-self: center !important;
+}
+
+
+.overlay-plot {
+  color: $liberty-white;
+  font-weight: 500;
+}
+
+.back-button {
+  height: 20px;
+  width: 30px;
+}
+
+svg.back {
+  border-radius: 6px;
+  background: $liberty-white;
+  opacity: 0.5;
+  pointer-events: all;
+  cursor: pointer;
+
+  transition: all 150ms ease-in-out;
+}
+
+svg.back:hover {
+  opacity: 1;
+}

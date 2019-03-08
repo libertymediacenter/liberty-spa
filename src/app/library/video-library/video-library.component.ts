@@ -64,13 +64,10 @@ export class VideoLibraryComponent implements OnInit, OnDestroy {
     };
   }
 
-  public onClick(video: VideoItem) {
-    alert(`Play ${video.title}`);
-  }
-
   public ngOnDestroy(): void {
     this._segments$.unsubscribe();
     this._data$.unsubscribe();
+    this.movieService.reset();
   }
 
 }

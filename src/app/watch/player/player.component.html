@@ -1,0 +1,38 @@
+<div class="player-container">
+  <div class="overlay p-3" #overlay>
+
+    <div class="container-fluid">
+      <div class="info-box">
+        <div class="row">
+          <div class="overlay-title col-12 col-sm-8 col-lg-3 mr-auto">
+            <div class="row d-flex justify-content-between pl-2 pr-2">
+              <p>{{ playerInfo?.title }}</p>
+              <small class="overlay-year">({{ playerInfo?.year }})</small>
+            </div>
+          </div>
+
+          <div class="back-button" (click)="goBack()">
+            <svg class="back" version="1.1" id="Back" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                 x="0px" y="0px"
+                 viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
+            <path d="M19,7v6c0,1.103-0.896,2-2,2H3v-3h13V8H5v2L1,6.5L5,3v2h12C18.104,5,19,5.896,19,7z"></path>
+          </svg>
+          </div>
+        </div>
+
+        <div class="row pl-1 pr-5">
+          <div class="overlay-divider m-2 col-12 col-sm-8 col-lg-3"></div>
+        </div>
+
+        <div class="row">
+          <div class="overlay-plot col-12 col-sm-8 col-lg-3">{{ playerInfo?.plot }}</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <video #libertyPlayer
+         poster="{{ playerInfo?.backdrop }}"
+         controls></video>
+</div>

@@ -24,6 +24,13 @@
       color: #D1CFCF;
       letter-spacing: -0.37px;
       text-align: left;
+      order: 0;
+    }
+
+    .title-spacer {
+      height: 50%;
+      width: 10px;
+      order: 1;
     }
 
     .year {
@@ -71,7 +78,7 @@
   font-family: Raleway, sans-serif;
   font-weight: 600;
   font-size: 12.15px;
-  color: rgba(255,255,255,0.60);
+  color: rgba(255, 255, 255, 0.60);
   letter-spacing: 0.08px;
   text-align: left;
   line-height: 24px;

@@ -3,6 +3,25 @@ export interface LibertyCollection<T> {
   count: number;
 }
 
+export interface LibertyGenre {
+  name: string;
+}
+
+export interface LibertyPerson {
+  name: string;
+  slug: string;
+  bio?: string;
+  imdbId?: string;
+  tmdbId?: string;
+  image?: string,
+}
+
+export interface LibertyCast {
+  role: string;
+  order: number;
+  person: LibertyPerson;
+}
+
 export interface LibertyMovie {
   title: string;
   slug: string;
@@ -16,4 +35,6 @@ export interface LibertyMovie {
   path: string;
   poster: string | null;
   backdrop: string | null;
+  genres: LibertyGenre[];
+  cast: LibertyCast[];
 }

@@ -11,13 +11,13 @@
         *ngFor="let video of videos"
         [video]="video"
         (mouseover)="onMouseOver(video)"
-        (click)="onClick(video)"
+        [routerLink]="['/watch', libraryType, 'general', video?.slug]"
       ></app-video-poster>
 
     </div>
   </div>
 
-  <div class="sidebar">
+  <div class="sidebar" *ngIf="videos.length > 0">
     <app-info-view
       [info]="infoView"></app-info-view>
 
