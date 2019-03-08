@@ -27,6 +27,8 @@ export interface VideoItem {
   starring?: Person[];
   ratings?: Rating[];
   awards?: string[];
+  librarySlug: string;
+  libraryType: string;
 }
 
 export interface MovieItem extends VideoItem {

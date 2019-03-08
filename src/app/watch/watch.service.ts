@@ -11,20 +11,21 @@ export class WatchService {
               private movieService: MovieService) {
   }
 
-  public async getMovie(movieSlug: string): Promise<Stream<LibertyMovie>> {
-    const item = await this.movieService.getMovie('', movieSlug);
-    // const playlist = await this.getPlaylist('general', movieSlug, {
-    //   startTime: 0,
-    //   audioBitrate: 192,
-    //   audioCodec: 'aac',
-    //   audioChannels: 2,
-    //   videoBitrate: 1000,
-    //   videoCodec: 'x264',
-    // });
+  public async getMovie(librarySlug: string, movieSlug: string): Promise<Stream<LibertyMovie>> {
+    const item = await this.movieService.getMovie(librarySlug, movieSlug);
+    const playlist = await this.getPlaylist(librarySlug, movieSlug, {
+      startTime: 0,
+      audioBitrate: 192,
+      audioCodec: 'aac',
+      audioChannels: 2,
+      videoBitrate: 1000,
+      videoCodec: 'x264',
+    });
 
     return {
       item,
-      playlistUrl: "/transcode/5dd69c3eb1ce13003a461917ce27118ed55e2904b1fdc52aceabe22a88c085d5/bd5028d6e3afd01eb3628d6103658399e964244fa0801048f9f0ec6e54bb39ac.m3u8",
+      playlistUrl: playlist.playlistUrl,
+      //playlistUrl: "/transcode/5dd69c3eb1ce13003a461917ce27118ed55e2904b1fdc52aceabe22a88c085d5/bd5028d6e3afd01eb3628d6103658399e964244fa0801048f9f0ec6e54bb39ac.m3u8",
     };
   }
 

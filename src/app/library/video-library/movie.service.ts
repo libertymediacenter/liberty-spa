@@ -99,6 +99,8 @@ export class MovieService {
       ratings: null,
       awards: null,
       slug: movie.slug,
+      librarySlug: movie.library.slug,
+      libraryType: movie.library.type,
     }));
 
     this._data.next(items);

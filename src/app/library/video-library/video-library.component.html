@@ -11,7 +11,7 @@
         *ngFor="let video of videos"
         [video]="video"
         (mouseover)="onMouseOver(video)"
-        [routerLink]="['/watch', libraryType, 'general', video?.slug]"
+        [routerLink]="['/watch', video.libraryType, video.librarySlug, video?.slug]"
       ></app-video-poster>
 
     </div>

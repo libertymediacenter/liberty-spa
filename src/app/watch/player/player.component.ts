@@ -38,7 +38,7 @@ export class PlayerComponent implements OnInit, OnDestroy, AfterViewInit {
       const librarySlug = params['librarySlug'];
       const videoSlug = params['videoSlug'];
 
-      const stream = await this.watchService.getMovie(videoSlug);
+      const stream = await this.watchService.getMovie(librarySlug, videoSlug);
 
       this.playerInfo = {
         title: stream.item.title,

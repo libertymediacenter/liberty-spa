@@ -20,7 +20,8 @@
       <div class="d-flex flex-row justify-content-between mt-1">
         <p class="secondary runtime" *ngIf="info.runtime"
         >{{ info.runtime | amDuration:'minutes' }}
-          <span class="font-italic">finish at {{ date | amAdd: info.runtime : 'minutes' | amDateFormat: 'HH:mm' }}</span>
+          <span
+            class="font-italic">finish at {{ date | amAdd: info.runtime : 'minutes' | amDateFormat: 'HH:mm' }}</span>
         </p>
 
         <div>

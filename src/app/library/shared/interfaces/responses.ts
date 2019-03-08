@@ -22,6 +22,12 @@ export interface LibertyCast {
   person: LibertyPerson;
 }
 
+export interface LibertyLibrary {
+  title: string;
+  slug: string;
+  type: string;
+}
+
 export interface LibertyMovie {
   title: string;
   slug: string;
@@ -35,6 +41,7 @@ export interface LibertyMovie {
   path: string;
   poster: string | null;
   backdrop: string | null;
+  library: LibertyLibrary;
   genres: LibertyGenre[];
   cast: LibertyCast[];
 }
